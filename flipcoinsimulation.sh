@@ -1,4 +1,5 @@
-#!/bin/bash
+
+#! /bin/bash
 
 Head=1
 Tail=0
@@ -16,9 +17,15 @@ do
         echo "Tail is winner"
         ((countTail++))
     fi
-done
 
-if [[ $countHead -eq 21 || $countTail -eq 21 ]]
+     #Check for whether it's a tie or not,if tie then continue the loop
+    if [[ $countHead -eq $countTail ]]
+    then
+        continue
+    fi
+
+    #breaking the loop if any of their count is 21
+    if [[ $countHead -eq 21 || $countTail -eq 21 ]]
     then
         break
     fi
