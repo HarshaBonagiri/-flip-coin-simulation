@@ -18,5 +18,24 @@ do
     fi
 done
 
+if [[ $countHead -eq 21 || $countTail -eq 21 ]]
+    then
+        break
+    fi
+done
+
 echo "Head Count : $countHead"
-echo "Tail COunt : $countTail"
+echo "Tail Count : $countTail"
+
+
+if [[ $countHead -ge $countTail ]]
+then
+    HeadPercentage=`echo "scale=2; $countHead/33*100" | bc`
+    echo "Heads winning percentage : $HeadPercentage %"
+elif [[ $countHead -eq $countTail ]]
+then    
+    echo "Heads and Tail there is a tie."
+else
+    TailPercentage=`echo "scale=2; $countTail/33*100" | bc`
+    echo "Tail Winning percentage : $TailPercentage %"
+fi 
